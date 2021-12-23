@@ -1,0 +1,133 @@
+#include<iostream>
+#include <stdio.h>
+#include<math.h>
+
+using namespace std;
+
+
+class triangle
+{
+    static int count;
+    protected:
+    float height;
+    float width;
+    float angle;
+    
+    public:
+    
+    static int getcount()
+    {
+       cout<<count<<" OBJECTS HAVE BEEN CREATED\n";
+    }
+    
+    triangle()
+    {}
+    
+    triangle(float h,float w,float ang)
+    {
+        count++;
+        height=h;
+        width=w;
+        angle=ang;
+    }
+    virtual float area()
+    {
+        return 0.5*width*height;
+    }
+};
+
+int triangle:: count;
+
+class isosceles:public triangle
+{
+    
+    float ang2;
+    
+    public:
+    isosceles()
+    {
+        
+    }
+    isosceles(float h,float w,float ang,float an2):triangle(h,w,ang)
+    {
+    ang2=an2;
+}
+
+float area()
+{
+    return abs(0.5*width*height*sin(ang2));}
+};
+
+class rightangle:public triangle
+{
+    public:
+    
+    rightangle()
+    {}
+    
+    rightangle(float h,float w,float ang):triangle(h,w,ang)
+    {}
+    float area()
+    {
+        return 0.5*width*height;
+    }
+};
+
+
+class equilateral:public triangle
+{
+    
+   
+    
+    public:
+    equilateral(float h,float w,float ang):triangle(h,w,ang)
+    {
+        
+        
+    }
+    
+    float area()
+    {
+        return 0.25*sqrt(3)*height*height;
+        
+    }
+    
+    float perimeter()
+    {
+        return 3*height;
+    }
+    
+    
+    
+};
+
+
+int main()
+{
+    
+    equilateral eq(6.7,5.6,7.8);
+    cout<<eq.area()<<endl;
+    cout<<eq.perimeter()<<endl;
+    
+    
+    
+    triangle::getcount();
+    
+    isosceles is(5.7,3.7,9.8,9.8);
+    cout<<is.area()<<endl;
+    
+    rightangle rg(5.8,9.7,90.0);
+    cout<<rg.area()<<endl;
+    
+     triangle::getcount();
+     
+    triangle *tr;
+    tr=&rg;
+    cout<<tr->area()<<endl;
+    
+    
+    
+    
+
+    return 0;
+}
