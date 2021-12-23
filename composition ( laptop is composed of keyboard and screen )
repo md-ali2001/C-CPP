@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include<iostream>
+using namespace std;
+
+class keyboard
+{
+    string type;
+    int keycount;
+    
+    public:
+    
+    keyboard()
+    {
+        
+    }
+    keyboard(string type,int keycount)
+    {
+        this->type=type;
+        this->keycount=keycount;
+    }
+    
+    void show()
+    {
+        cout<<"KEYBOARD TYPE "<<type<<endl;
+        cout<<"KEYBOARD KEYS COUNT "<<keycount<<endl;
+        
+    }
+};
+
+class screen
+{
+    string resolution;
+    int height;
+    int width;
+    public:
+    
+    screen(){}
+    screen(string resolution,int height,int width)
+    {
+        this->resolution=resolution;
+        this->height=height;
+        this->width=width;
+    }
+    
+    void show()
+    {
+        cout<<"RESOLUTION "<<resolution<<endl;
+        cout<<"HEIGHT "<<height<<endl;
+        cout<<"WIDTH "<<width<<endl;
+    }
+    
+};
+
+class laptop
+{
+    keyboard k;
+    screen s;
+    
+    public:
+    laptop(keyboard k,screen s)
+    {
+        this->k=k;
+        this->s=s;
+    }
+    
+    void show()
+    {
+        k.show();
+        s.show();
+    }
+};
+
+int main()
+{
+    keyboard kb("QWERT",111);
+    screen sc("430x330",56,78);
+    laptop lt(kb,sc);
+    lt.show();
+
+    return 0;
+}
