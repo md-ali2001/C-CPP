@@ -1,0 +1,149 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class bedroom
+{
+private:
+  
+  float height, width;
+public:
+
+    
+    
+    bedroom (float h, float w)
+  {
+    height = h;
+    width = w;
+    
+  }
+  bedroom ()
+  {
+    height = 0.0;
+    width = 0.0;
+    
+  }
+  float area ()
+  {
+    return height * width;
+  }
+ 
+  void showbed()
+  {
+      cout<<"BEDROOM DETAILS\n"<<endl;
+      cout<<"HEIGHT "<<height<<endl;
+      cout<<"WIDTH "<<width<<endl;
+      
+  }
+
+};
+
+class kitchen
+{
+  float height, width;
+  string wallcolor;
+public:
+
+    kitchen ()
+  {
+    height = 0.0;
+    width = 0.0;
+    wallcolor = " ";
+  }
+  kitchen (float h, float w, string wc)
+  {
+    height = h;
+    width = w;
+    wallcolor = wc;
+  }
+  void showkitchen()
+  {
+      cout<<"KITCHEN DETAILS\n"<<endl;
+      cout<<"HEIGHT "<<height<<endl;
+      cout<<"WIDTH "<<width<<endl;
+      cout<<"WALL COLOR "<<wallcolor<<endl;
+      
+  }
+  float kitarea()
+  {
+      return height * width;
+  }
+  
+  };
+
+class dining
+{
+    int chairs;
+    int sofas;
+    public:
+    dining()
+    {
+        chairs=0;
+        sofas=0;
+        
+    }
+    dining(int ch,int so)
+    {
+        chairs=ch;
+        sofas=so;
+    }
+    void showdining()
+  {
+      cout<<"\nDINING DETAILS"<<endl;
+      cout<<"SEATS "<<chairs<<endl;
+      cout<<"SOFAS "<<sofas<<endl;
+      
+  }
+    
+    };
+    
+class house
+{
+    bedroom bed1;
+    bedroom bed2;
+    kitchen kit;
+    dining din;
+    public:
+    house(bedroom b1,bedroom b2,kitchen k,dining d)
+    {
+     bed1=b1;
+     bed2=b2;
+     kit=k;
+     din=d;
+    }
+    void showdata()
+    {
+        bed1.showbed();
+        cout<<"BEDROOM 1 AREA "<<bed1.area()<<endl;
+        bed2.showbed();
+        cout<<"BEDROOM 2 AREA "<<bed2.area()<<endl;
+        kit.showkitchen();
+        cout<<"KITCHEN AREA "<<kit.kitarea()<<endl;
+        din.showdining();
+        
+    }
+    
+    
+
+
+    
+    
+    
+    
+};
+
+int main ()
+{
+    bedroom bone(12.5,6.7);
+    bedroom btwo(4.6,7.8);
+    kitchen kitch(6.7,4.6,"RED");
+    dining dine(5,6);
+    house h(bone,btwo,kitch,dine);
+    h.showdata();
+    
+    
+    
+
+
+  return 0;
+}
