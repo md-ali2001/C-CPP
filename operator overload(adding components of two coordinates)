@@ -1,0 +1,46 @@
+#include<iostream>
+using namespace std;
+
+class coordinate
+{
+    private:
+    float x,y;
+    public:
+    coordinate()
+    {
+        x=0.0;
+        y=0.0;
+    }
+    coordinate(float a,float b)
+    {
+        x=a;
+        y=b;
+    }
+    float xcodinate()
+    {
+        return x;
+    }
+    float ycodinate()
+    {
+        return y;
+    }
+    
+    coordinate operator+(const coordinate &c)
+    {
+        coordinate point;
+        point.x=this->x+c.x;
+        point.y=this->y+c.y;
+        return point;
+        
+        
+    }
+};
+
+int main()
+{
+    coordinate c1(4.5,8.9);
+    coordinate c2(4.2,6.8);
+    coordinate c3=c1+c2;
+    cout<<"X = "<<c3.xcodinate()<<"   Y = "<<c3.ycodinate();
+    return 0;
+}
