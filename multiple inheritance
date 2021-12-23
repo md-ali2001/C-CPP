@@ -1,0 +1,100 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class woman
+{
+    protected:
+    int handsize;
+    int legsize;
+    string skincolor;
+    
+    public:
+    woman()
+    {}
+    
+    woman(int a,int b,string c)
+    {
+        handsize=a;
+        legsize=b;
+        skincolor=c;
+    }
+    
+    void eat()
+    {
+     cout<<"WOMAN EATING"<<endl;
+     
+    }
+    
+    
+};
+
+class fish
+{
+    protected:
+    string skincolor;
+    int finsize;
+    int tailsize;
+    
+    public:
+    fish()
+    {
+        
+    }
+    
+    fish(string d,int e,int f)
+    {
+        skincolor=d;
+        finsize=e;
+        tailsize=f;
+    }
+    
+    
+    void eat()
+    {
+        cout<<"FISH EATING" <<endl;
+    }
+    
+};
+
+class mermaid:public woman,public  fish
+{
+    string bodytype;
+    
+    public:
+    
+    
+    
+    mermaid()
+    {
+        
+    }
+    
+    mermaid(int a,int b,string c,string  d,int e,int f,string bt):woman(a,b,c),fish(d,e,f)
+    {
+        bodytype=bt;
+    }
+    
+    void eat()
+    {
+          woman:: eat();
+    }
+};
+
+
+
+
+
+
+int main()
+
+{
+    mermaid m(4,5,"red","blue",7,9,"MIX");
+    m.eat();
+    
+
+
+
+return 0;
+
+}
