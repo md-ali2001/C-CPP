@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int var=12;
+    int age;
+    int y;
+    string c;
+    char f='a';
+    bool g=false;
+    
+    
+    // cout<< "enter first number\t";
+    // cin>>a;
+    // cout<< "enter second number\t";
+    // cin>>y;
+    // cout<< "THE SUM OF "<<a<<" AND "<<y<< " IS "<<a/y; 
+    
+    // cout<<" enter your name ";
+    // getline(cin,c);
+    
+    // cout<<" enter your age ";
+    // cin>>age;
+    
+    
+    
+    // cout<<"HELLO , WELCOME TO "<<c<<" and your age is "<<age;
+    
+    
+    if(var<5)
+    cout<<"the number is greater";
+    else if(var>5 && var<10)
+    cout<<"the number is in between";
+    else
+    cout<<"the number is greater than 9";
+    
+    
+    
+
+    return 0;
+}
