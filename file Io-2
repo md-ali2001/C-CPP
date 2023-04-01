@@ -1,0 +1,67 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+	FILE *ptr;
+	char aString; // make an array of 30 chars
+
+	/*
+	ptr = fopen("file.txt", "w"); // write to a file
+	fprintf(ptr, "%s", "amaan"); // creates new file. Removes old one
+
+	ptr = fopen("file.txt", "a"); // append to a file. Doesn't make a new file
+
+	fprintf(ptr, "%s", "ibraheem");
+	*/
+
+	ptr = fopen("file.txt", "r");
+	/*
+	if (ptr == NULL)
+	{
+		cout << "File not found" << endl;
+	}
+	else{
+		fscanf(ptr, "%s", aString); // only reads first word of first line.
+		cout << aString << endl;
+	}
+	*/
+	//fprintf(ptr, "%s", aString); // reads data to a file
+	//cout << aString << endl;
+	//fscanf(ptr, "%s", aString); // only reads first word of first line.
+	//cout << aString << endl;
+	//fclose(ptr); // close the file
+
+	//ptr = fopen("file2.txt", "w");
+
+	if (ptr == NULL)
+	{
+			cout << "File not found" << endl;
+	}
+	else
+	{
+		do
+		{
+			aString = fgetc(ptr); // fgetc reads every chracter
+			cout << aString;
+		}
+		while(aString!=EOF);
+	}
+
+	/*
+	int arr[5] = {3, 5, 6, 7, 9};
+	int var;
+	*/
+	/*
+	for(int i = 0; i < 5; i++)
+	{
+		var = arr[i];
+		cout << var << endl;
+	}
+	*/
+
+
+
+	cout << "Program ending, have a nice day!" << endl; // prints Program ending, have a nice day!
+	return 0;
+}
