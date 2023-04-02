@@ -1,0 +1,106 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+	FILE *ptr;
+	char aString[30]; // make an array of 30 chars
+
+	/*
+	ptr = fopen("file.txt", "w"); // write to a file
+	fprintf(ptr, "%s", "amaan"); // creates new file. Removes old one
+
+	ptr = fopen("file.txt", "a"); // append to a file. Doesn't make a new file
+
+	fprintf(ptr, "%s", "ibraheem");
+	*/
+
+	/*
+	ptr = fopen("file.txt", "a");
+	fscanf(ptr, "%s", aString); // aString remains blank because file open at append mode
+	cout << aString << endl; // aString is blank
+	//fprintf(ptr, "%s", "obaid");
+	 */
+
+	/*
+	if (ptr == NULL)
+	{
+		cout << "File not found" << endl;
+	}
+	else{
+		fscanf(ptr, "%s", aString); // only reads first word of first line.
+		cout << aString << endl;
+	}
+	*/
+	//fprintf(ptr, "%s", aString); // reads data to a file
+	//cout << aString << endl;
+	//fscanf(ptr, "%s", aString); // only reads first word of first line.
+	//cout << aString << endl;
+	//fclose(ptr); // close the file
+
+	//ptr = fopen("file2.txt", "w");
+
+	/*
+	if (ptr == NULL)
+	{
+			cout << "File not found" << endl;
+	}
+	else
+	{
+		do
+		{
+			aString = fgetc(ptr); // fgetc reads every chracter
+			cout << aString;
+		}
+		while(aString!=',');
+	}
+	*/
+
+	/*
+	int arr[5] = {3, 5, 6, 7, 9};
+	int var;
+	*/
+	/*
+	for(int i = 0; i < 5; i++)
+	{
+		var = arr[i];
+		cout << var << endl;
+	}
+	*/
+	/*
+	ptr = fopen("file.txt", "r+"); // r+ is for both reading and writing. For writing, r+ overwrites the conten
+	if (ptr == NULL)
+	{
+		cout << "File not found" << endl;
+	}
+	else
+	{
+		fprintf(ptr, "%s", "Subhan");
+		fscanf(ptr, "%s", aString); // when reading, pass the array name
+		cout << aString << endl;
+	}
+	*/
+
+	ptr = fopen("file.txt", "a+"); // r+ is for both reading and writing. For writing, r+ overwrites the content
+	if (ptr == NULL)
+	{
+		cout << "File not found" << endl;
+	}
+	else
+	{
+		fprintf(ptr, "%s", "Wahhaj");
+		fseek(ptr, 8, SEEK_SET); // it sets the pointer to default. Cannot read right after writing
+		/*
+		 * fseek() is used to alter the state of pointer between writing and reading mode , it takes 3 arguments , first is file pointer ,2nd  is    , 3rd is for reading position of file
+		 * 2nd argument indicates bytes shift ( character shift ) , 2 means leave initial 2 chars and then read next 2 then leave next 2 then read next 2 , 0 means read all
+		 */
+		fscanf(ptr, "%s", aString); // when reading, pass the array name
+		cout << aString << endl; // print whatever stored in the array
+	}
+	fclose(ptr);
+
+
+
+	cout << "Program ending, have a nice day!" << endl; // prints Program ending, have a nice day!
+	return 0;
+}
