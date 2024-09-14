@@ -1,0 +1,88 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+
+using namespace std;
+struct node{
+    int data;
+    struct node *next;
+};
+
+
+void traverse(struct node *ptr)
+{
+    while(ptr!=NULL){
+    cout<<ptr->data<<endl;
+    ptr=ptr->next;}
+    
+}
+
+struct node * deleteFirst(struct node *head)
+{
+    struct node *ptr=head;
+    head=ptr->next;
+    free(ptr);
+    return head;
+    }
+    
+
+
+
+
+
+struct node * deleteAtIndex(struct node *head,int index)
+{
+    struct node *p=head;
+    struct node *q=head->next;
+    
+    for(int i=0;i<index-1;i++)
+    {
+        p=p->next;
+        q=q->next;
+        
+    }
+    p->next=q->next;
+    free(q);
+    return head;
+}
+
+
+
+int main()
+{
+    struct node *head;
+    struct node *first;
+    struct node *second;
+    struct node *third;
+    
+    head=(struct node*)malloc(sizeof(struct node));
+    second=(struct node*)malloc(sizeof(struct node));
+    third=(struct node*)malloc(sizeof(struct node));
+    first=(struct node*)malloc(sizeof(struct node));
+    
+    head->data=1;
+    head->next=first;
+    
+    first->data=3;
+    first->next=second;
+    
+    second->data=5;
+    second->next=third;
+    
+    third->data=7;
+    third->next=NULL;
+    
+    traverse(head);
+    //head=deleteFirst(head);
+    head=deleteAtIndex(head,1);
+    cout<<"after delete"<<endl;
+    traverse(head);
+
+    return 0;
+}
