@@ -1,0 +1,52 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+
+using namespace std;
+
+struct node{
+    int data;
+    struct node *left;
+    struct node *right;
+};
+
+struct node *createNode(int data)
+{
+    struct node *p;
+    p=(struct node *)malloc(sizeof(struct node));
+    p->data=data;
+    p->left=NULL;
+    p->right=NULL;
+    return p;
+}
+
+void InorderTraversal(struct node *root)
+{
+    if(root!=NULL){
+    InorderTraversal(root->left);
+    cout<<root->data<<endl;
+    InorderTraversal(root->right);
+    }
+}
+
+int main()
+{
+   struct node *root=createNode(2);
+   struct node *p1=createNode(4);
+   struct node *p2=createNode(6);
+   struct node *p3=createNode(9);
+   root->left=p1;
+   root->right=p2;
+   p1->right=p3;
+   InorderTraversal(root);
+   
+   
+
+    return 0;
+}
